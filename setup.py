@@ -22,7 +22,7 @@ from setuptools import setup, find_packages
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
 install_requires = [
-	'robotframework',
+	'robotframework==2.8.4',
 	]
 
 setup(name         = 'robotframework-databaselibrary',
