@@ -21,8 +21,10 @@ from distutils.core import setup
 
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+long_description = ''.join(readme)
 
 from DatabaseLibrary import __version__
+from setuptools import setup, find_packages
 
 def main():
     setup(name         = 'robotframework-databaselibrary',
@@ -33,10 +35,16 @@ def main():
           url          = 'https://github.com/franz-see/Robotframework-Database-Library',
           package_dir  = { '' : 'src'},
           packages     = ['DatabaseLibrary'],
-          install_requires=[
-              "robotframework"]
+          install_requires=["robotframework"],
+          
+    maintainer_email=email,
+    description=description,
+    long_description=long_description,
+    packages=find_packages(),
+    include_package_data=True,
           )
-        
+    
+
 
 if __name__ == "__main__":
     main()
