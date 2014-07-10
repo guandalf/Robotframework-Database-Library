@@ -13,7 +13,6 @@
 #  limitations under the License.
 
 import ConfigParser
-from robot.api import logger
 
 class ConnectionManager(object):
     """
@@ -71,14 +70,11 @@ class ConnectionManager(object):
         db_api_2 = __import__(dbapiModuleName)
         if dbapiModuleName in ["MySQLdb", "pymysql"]:
             dbPort = dbPort or 3306
-            logger.debug ('Connecting using : %s.connect(db=%s, user=%s, passwd=%s, host=%s, port=%s) ' % (dbapiModuleName, dbName, dbUsername, dbPassword, dbHost, dbPort))
             self._dbconnection = db_api_2.connect (db=dbName, user=dbUsername, passwd=dbPassword, host=dbHost, port=dbPort)
         elif dbapiModuleName in ["psycopg2"]:
             dbPort = dbPort or 5432            
-            logger.debug ('Connecting using : %s.connect(database=%s, user=%s, password=%s, host=%s, port=%s) ' % (dbapiModuleName, dbName, dbUsername, dbPassword, dbHost, dbPort))
             self._dbconnection = db_api_2.connect (database=dbName, user=dbUsername, password=dbPassword, host=dbHost, port=dbPort)
         else:
-            logger.debug ('Connecting using : %s.connect(database=%s, user=%s, password=%s, host=%s, port=%s) ' % (dbapiModuleName, dbName, dbUsername, dbPassword, dbHost, dbPort))
             self._dbconnection = db_api_2.connect (database=dbName, user=dbUsername, password=dbPassword, host=dbHost, port=dbPort)
             
     def connect_to_database_using_custom_params(self, dbapiModuleName=None, db_connect_string=''):
