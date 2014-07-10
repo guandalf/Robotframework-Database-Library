@@ -12,7 +12,6 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from robot.api import logger
 
 class Query(object):
     """
@@ -259,5 +258,4 @@ class Query(object):
                 self._dbconnection.rollback()
 
     def __execute_sql(self, cur, sqlStatement):
-        logger.debug("Executing : %s" % sqlStatement)
         return cur.execute(sqlStatement)
