@@ -3,6 +3,7 @@
 """Setup script for Robot's DatabaseLibrary distributions"""
 
 import sys, os
+from distutils.core import setup
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
 setup(
